@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<unistd.h>
 
- void SizeOfVariables(void) {
+void SizeOfVariables(void) {
 	char c;  
 	short s;  
 	int i;  
@@ -21,37 +21,37 @@
 	printf("Size of \"d\" is: %llu\n", sizeof(d));
 	printf("Size of \"ld\" is: %llu\n", sizeof(ld));
 	printf("Size of \"*ptr\" is: %llu\n\n", sizeof(*ptr));
- }
+}
  
- int isLeapYear(int aYear) {
-	 if (aYear < 1752) {
-		 return 0;
-	 }
-	 else if (aYear % 400 == 0) {
-		 return 1;
-	 }
-	 else if (aYear % 100 == 0) {
-		 return 0;
-	 }
-	 else if (aYear % 4 == 0) {
-		 return 1;
-	 }
-	 else {
-		 return 0;
-	 }
- }
+int isLeapYear(int aYear) {
+	if (aYear < 1752) {
+		return 0;
+	}
+	else if (aYear % 400 == 0) {
+		return 1;
+	}
+	else if (aYear % 100 == 0) {
+		return 0;
+	}
+	else if (aYear % 4 == 0) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
  
- int isVowel(char aLetter) {
-	 if (aLetter == 'a' || aLetter == 'e' || aLetter == 'i' || aLetter == 'o' || aLetter == 'u' || aLetter == 'A' || aLetter == 'E' || aLetter == 'I' || aLetter == 'O' || aLetter == 'U') {
-		 return 1;
-	 }
-	 else if ((aLetter > 'a' && aLetter <= 'z') || (aLetter > 'A' && aLetter <= 'Z')) {
-		 return 0;
-	 }
-	 else {
-		 return 2;
-	 }
- }
+int isVowel(char aLetter) {
+	if (aLetter == 'a' || aLetter == 'e' || aLetter == 'i' || aLetter == 'o' || aLetter == 'u' || aLetter == 'A' || aLetter == 'E' || aLetter == 'I' || aLetter == 'O' || aLetter == 'U') {
+		return 1;
+	}
+	else if ((aLetter > 'a' && aLetter <= 'z') || (aLetter > 'A' && aLetter <= 'Z')) {
+		return 0;
+	}
+	else {
+		return 2;
+	}
+}
 
 void reverseNumber(long aNumber) {
 	char numString[10] = "";
@@ -87,6 +87,23 @@ void reverseNumber(long aNumber) {
 	printf("When %ld is reversed, it becomes %s.\n", aNumber, reverseString);
 }
 
+int retest(void) {
+	int loop = 0;
+	char character;
+	while (loop == 0) {
+		printf("\nContinue testing? y/n: \n");
+		scanf(" %c",&character);
+		if (character == 'n' || character == 'N') {
+			loop = 1;
+			return 1;
+		}
+		else if (character == 'y' || character == 'Y') {
+			loop = 1;
+			return 0;
+		}
+	}
+}
+
 int main() {
     int num1, num2;  
     float fraction;     
@@ -94,7 +111,6 @@ int main() {
     char str[50];   // char array of size 50
 	int yearTest;
 	int loopHolder = 0;
-	int loop2 = 0;
 	char charTest;
 	long numReverse;
 
@@ -137,22 +153,9 @@ int main() {
 		else {
 			printf("\n%i is a leap year.\n", yearTest);
 		}
-		loop2 = 0;
-		while (loop2 == 0) {
-			printf("\nContinue testing years? y/n: \n");
-			scanf(" %c",&character);
-			if (character == 'n' || character == 'N') {
-				loopHolder = 1;
-				loop2 = 1;
-			}
-			else if (character == 'y' || character == 'Y') {
-				loopHolder = 0;
-				loop2 = 1;
-			}
-		}
+		loopHolder = retest();
 	}
 	loopHolder = 0;
-	loop2 = 0;
 
 	//FUNCTION FOR PART C
 	while (loopHolder == 0) {
@@ -167,44 +170,19 @@ int main() {
 		else {
 			printf("Error: not an ASCII letter.\n");
 		}
-		loop2 = 0;
-		while (loop2 == 0) {
-			printf("\nContinue testing chars? y/n: \n");
-			scanf(" %c",&character);
-			if (character == 'n' || character == 'N') {
-				loopHolder = 1;
-				loop2 = 1;
-			}
-			else if (character == 'y' || character == 'Y') {
-				loopHolder = 0;
-				loop2 = 1;
-			}
-		}
+		loopHolder = retest();
 	}
 	loopHolder = 0;
-	loop2 = 0;
 
 	//FUNCTION FOR PART D
 	while (loopHolder == 0) {
-		printf("\nEnter a multi-digit number:\n");
+		printf("\nEnter a multi-digit number (up to 10 digits):\n");
 		scanf(" %ld", &numReverse);
 		reverseNumber(numReverse);
-		loop2 = 0;
-		while (loop2 == 0) {
-			printf("\nContinue testing numbers? y/n: \n");
-			scanf(" %c",&character);
-			if (character == 'n' || character == 'N') {
-				loopHolder = 1;
-				loop2 = 1;
-			}
-			else if (character == 'y' || character == 'Y') {
-				loopHolder = 0;
-				loop2 = 1;
-			}
-		}
+		loopHolder = retest();
 	}
 	loopHolder = 0;
-	loop2 = 0;
-
+	
+	printf("\n");
     return 0;
 }
