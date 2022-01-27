@@ -1,7 +1,7 @@
 #include<stdio.h> //Welcome :)
 #include<unistd.h>
 
-void SizeOfVariables(void) { //Does exactly what you think it does... 
+void sizeOfVariables(void) { //Does exactly what you think it does... 
 	char c;  //Initialize all the variables
 	short s;  
 	int i;  
@@ -140,7 +140,7 @@ int main() { //Commenting is tiring
 	
 	
 	//FUNCTION CALL FOR PART A
-	SizeOfVariables(); //Wow, now that's what I call a function call
+	sizeOfVariables(); //Wow, now that's what I call a function call
 
 	//FUNCTION CALL FOR PART B
 	while (loopHolder == 0) { //The while loop and "loopholder" stuff makes it easier to test each function multiple times
