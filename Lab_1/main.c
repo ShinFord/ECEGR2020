@@ -97,7 +97,7 @@ int main() {
 	int loop2 = 0;
 	char charTest;
 	long numReverse;
-/*
+
     printf("Enter two numbers\n");
     
     // Taking integer as input from user
@@ -122,12 +122,12 @@ int main() {
 
     printf("\n\n\t\t\tCoding is Fun !\n\n\n");
 	
-*/
-/*
+
+
 	//FUNCTION FOR PART A
     SizeOfVariables();	
-*/
-/*
+
+	//FUNCTION FOR PART B
 	while (loopHolder == 0) {
 		printf("\nInput a year: \n");
 		scanf(" %i",&yearTest);
@@ -153,8 +153,8 @@ int main() {
 	}
 	loopHolder = 0;
 	loop2 = 0;
-*/
-/*
+
+	//FUNCTION FOR PART C
 	while (loopHolder == 0) {
 		printf("\nInput a character: \n");
 		scanf(" %c",&charTest);
@@ -183,7 +183,8 @@ int main() {
 	}
 	loopHolder = 0;
 	loop2 = 0;
-*/ 
+
+	//FUNCTION FOR PART D
 	while (loopHolder == 0) {
 		printf("\nEnter a multi-digit number:\n");
 		scanf(" %ld", &numReverse);
