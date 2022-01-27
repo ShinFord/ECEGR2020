@@ -141,7 +141,7 @@ int main() { //Commenting is tiring
 
 
 	//FUNCTION CALL FOR PART A
-    SizeOfVariables(); //Wow, now that's what I call a function call
+	SizeOfVariables(); //Wow, now that's what I call a function call
 
 	//FUNCTION CALL FOR PART B
 	while (loopHolder == 0) { //The while loop and "loopholder" stuff makes it easier to test each function multiple times
