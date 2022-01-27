@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h> //Welcome :)
 #include<unistd.h>
 
 void SizeOfVariables(void) { //Does exactly what you think it does... 
