@@ -138,8 +138,7 @@ int main() { //Commenting is tiring
 
     printf("\n\n\t\t\tCoding is Fun !\n\n\n");
 	
-
-
+	
 	//FUNCTION CALL FOR PART A
 	SizeOfVariables(); //Wow, now that's what I call a function call
 
