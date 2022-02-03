@@ -94,7 +94,7 @@ void pyramid(int lines) {
 	for (int i = 0; i < lines; i++) {
 		for (int w = placehold/2; w > 0; w--) {
 			printf(" ");
-			fprintf(fp, " ");
+			fprintf(fp, "  ");
 		}
 		for (int w = starNum[i]; w > 0; w--) {
 			printf("*");
