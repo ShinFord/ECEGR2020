@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\shinf\OneDrive\Documents\ECEGR2020\ECEGR2020.workspace">
-  <int Value="1" Name="m_selectedTab"/>
+  <int Value="0" Name="m_selectedTab"/>
   <wxString Value="C:\Users\shinf\OneDrive\Documents\ECEGR2020\ECEGR2020.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\shinf\OneDrive\Documents\ECEGR2020\Lab_1\main.c" Name="FileName"/>
       <int Value="163" Name="FirstVisibleLine"/>
       <int Value="180" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\shinf\OneDrive\Documents\ECEGR2020\Lab_3\main.c" Name="FileName"/>
-      <int Value="110" Name="FirstVisibleLine"/>
-      <int Value="123" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

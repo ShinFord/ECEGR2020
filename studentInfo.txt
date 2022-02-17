@@ -1,0 +1,23 @@
+Number of Students: 3
+
+
+Student ID: 3
+
+Student Name: c C
+
+Student GPA: 4.100000
+
+
+Student ID: 1
+
+Student Name: a A
+
+Student GPA: 2.800000
+
+
+Student ID: 2
+
+Student Name: b B
+
+Student GPA: 1.000000
+

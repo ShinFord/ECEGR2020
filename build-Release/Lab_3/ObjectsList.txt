@@ -1,0 +1,1 @@
+../build-Release/Lab_3/main.c.o   

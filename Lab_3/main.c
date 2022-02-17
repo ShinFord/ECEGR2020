@@ -1,189 +1,233 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-long factorial(long num) {
-	long factNum = 1;
+int theArray[10] = {1,2,3,4,5,6,7,8,9,10};
+char userString[100];
+
+typedef struct student {
+    int ID;
+    char firstName[30];
+    char lastName[30];
+    float GPA;
+} student;
+
+void reverseArray(void) {
+	int newArray[10];
+	int placehold = 0;
 	
-	for (int i = num; i > 1; i--) {
-		factNum = factNum * i;
+	for (int i = 9; i >= 0; i--) {
+		newArray[i] = theArray[placehold];
+		placehold++;
 	}
-	return factNum;
-}
-
-int isPalindrome(long value) {
-	char numString[10] = "";
-	int placeholder;
-	int palCheck = 1;
-	
-	sprintf(numString, "%ld", value);
-	placeholder = strlen(numString) - 1;
-	if (strlen(numString)%2 != 0) {
-		for (int i = 0; i != placeholder; i++) {
-			if (numString[i] != numString[placeholder]) {
-				palCheck = 0;
-			}
-			placeholder--;
-		}
+	for (int i = 0; i < 10; i++) {
+		theArray[i] = newArray[i];
+		printf("%d ",theArray[i]);
 	}
-	else {
-		for (int i = 0; i < strlen(numString)/2; i++) {
-			if (numString[i] != numString[placeholder]) {
-				palCheck = 0;
-			}
-			placeholder--;
-		}
-	}
-	return palCheck;
-}
-
-int highestBitSet(int value) {
-	int binarySet[10];
-	int holder = value;
-	char binaryHold[10] = "0";
-	int i;
-	int placeholder = 0;
-	
-	for (i = 0; holder > 0; i++) {
-		binarySet[i] = holder % 2;
-		holder = holder/2;
-	}
-	for (i = i - 1; i >= 0; i--) {
-		binaryHold[placeholder] = binarySet[i] + 48;
-		placeholder++;
-	}
-	printf("Value = %d, Binary = %s, Highest bit set = %d.\n",value, binaryHold, strlen(binaryHold) - 1);
-}
-
-void reverseIt(void) {
-	float f1,f2,f3,f4,f5;
-	FILE *fp;
-	
-	fp = fopen("reverseIt.txt", "w+");
-	printf("\nEnter 5 floating point numbers: \n");
-	scanf(" %f%f%f%f%f", &f1,&f2,&f3,&f4,&f5);
-	fprintf(fp,"Original order: %f %f %f %f %f\n",f1,f2,f3,f4,f5);
-	fprintf(fp,"Reverse order: %f %f %f %f %f\n",f5,f4,f3,f2,f1);
-	printf("\nReversed order: %f %f %f %f %f\n",f5,f4,f3,f2,f1);
-	fclose(fp);
-}
-
-void reverseItAgain(void) {
-	FILE *fp;
-	char buff[255];
-	
-	fp = fopen("reverseIt.txt", "r");
-	printf("\n\nValues from file:\n\n");
-	fgets(buff, 255, fp);
-	printf("%s\n", buff);
-	fgets(buff, 255, fp);
-	printf("%s\n", buff);
-	fclose(fp);
-}
-
-void pyramid(int lines) {
-	int starNum[100];
-	int placehold = 1;
-	FILE *fp;
-	
-	fp = fopen("pyramid.txt", "w");
 	printf("\n");
-	for (int i = 0; i < lines; i++) {
-		starNum[i] = placehold;
-		placehold = placehold + 2;
-	}
-	for (int i = 0; i < lines; i++) {
-		for (int w = placehold/2; w > 0; w--) {
-			printf(" ");
-			fprintf(fp, "  ");
-		}
-		for (int w = starNum[i]; w > 0; w--) {
-			printf("*");
-			fprintf(fp, "*");
-		}
-		placehold = placehold - 2;
-		printf("\n");
-		fprintf(fp, "\n");
-	}
-	fclose(fp);
 }
 
-int retest(void) { //My personal creation :)
-	int loop = 0; //I love binary variables that hold together the logic of my code, they're like digital duct tape and WD-40!
-	char character; //Yeah I'm reusing the variable from main(), what're you gonna do about it?
+student* studentInfo(void) {
+	student* ptr = malloc(sizeof(student));
+	int id;
+	char first[50];
+	char last[50];
+	float gpa;
 	
-	while (loop == 0) { //The loop is here to make sure that if the user inputs something other than y/n, they're trapped until they cooperate
-		printf("\nContinue testing? y/n: \n");
-		scanf(" %c",&character); //So it turns out that that space in front of %c is pretty important
-		if (character == 'n' || character == 'N') { //Dunno how long I spent trying to figure out why things were printing twice
-			loop = 1;
-			return 1; //returns are pretty useful, aren't they
+	printf("\nEnter student's ID: \n");
+	scanf(" %d", &id);
+	ptr->ID = id;
+	
+	printf("\nEnter student's first name: \n");
+	scanf(" %s", &first);
+	strcpy(ptr->firstName, first);
+	
+	printf("\nEnter student's last name: \n");
+	scanf(" %s", &last);
+	strcpy(ptr->lastName, last);
+	
+	printf("\nEnter student's GPA: \n");
+	scanf(" %f", &gpa);
+	ptr->GPA = gpa;
+	
+	return ptr;
+}
+
+void gpaSorting(student** studentArray, int studentNum) {
+	student* placehold;
+	
+	for (int i = 0; i < studentNum; i++) {
+		for (int j = 1; j < studentNum; j++) {
+			if (studentArray[j-1]->GPA < studentArray[j]->GPA) {
+				placehold = studentArray[j];
+				studentArray[j] = studentArray[j-1];
+				studentArray[j-1] = placehold;
+			}
 		}
-		else if (character == 'y' || character == 'Y') {
-			loop = 1; //Now that I'm thinking about it, these changes to loop aren't necessary, are they?
-			return 0; //Gonna keep them in though, not gonna mess with something that works
+	}
+}
+
+void studentRead(student** studentArray) {
+	int id, num;
+	char first[50];
+	char last[50];
+	float gpa, avgGPA;
+	FILE *f;
+	student* ptr = malloc(sizeof(student));
+	
+	printf("\n\nInfo about students:\n");
+	
+	f = fopen("studentInfo.txt", "r");
+	fscanf(f, "Number of Students: %d\n", &num);
+	printf("Number of Students: %d\n", num);
+	
+	for (int i = 0; i < num; i++) {
+		fscanf(f, "\nStudent ID: %d\n", &id);
+		ptr->ID = id;
+		printf("\nStudent ID: %d\n", id);
+		
+		fscanf(f, "Student Name: %s %s\n", &first, &last);
+		strcpy(ptr->firstName, first);
+		strcpy(ptr->lastName, last);
+		printf("Student Name: %s %s\n", first, last);
+		
+		fscanf(f, "Student GPA: %f\n", &gpa);
+		ptr->GPA = gpa;
+		printf("Student GPA: %f\n", gpa);
+		
+		avgGPA += gpa;
+		studentArray[i] = ptr;
+	}
+	avgGPA /= num;
+	printf("\nAverage GPA: %f\n\n\n", avgGPA);
+	fclose(f);
+}
+
+int vowelCount(char string[100]) {
+	int vowelNum = 0;
+	
+	for (int i = 0; i < strlen(string); i++) {
+		if ((string[i] == 'a') || (string[i] == 'e') || (string[i] == 'i') || (string[i] == 'o') || (string[i] == 'u') || (string[i] == 'A') || (string[i] == 'E') || (string[i] == 'I') || (string[i] == 'O') || (string[i] == 'U')) {
+			vowelNum++;
 		}
+	}
+	return vowelNum;
+}
+
+int consCount(char string[100]) {
+	int consNum = 0;
+	
+	for (int i = 0; i < strlen(string); i++) {
+		if ((string[i] != 'a') && (string[i] != 'e') && (string[i] != 'i') && (string[i] != 'o') && (string[i] != 'u') && (string[i] != 'A') && (string[i] != 'E') && (string[i] != 'I') && (string[i] != 'O') && (string[i] != 'U') && (string[i] != ' ') && (string[i] != '\n')) {
+			consNum++;
+		}
+	}
+	return consNum;
+}
+
+void uppering() {
+	for (int i = 0; i < strlen(userString); i++) {
+		userString[i] = toupper(userString[i]);
+	}
+}
+
+void lowering() {
+	for (int i = 0; i < strlen(userString); i++) {
+		userString[i] = tolower(userString[i]);
+	}
+}
+
+void reversing() {
+	char wordHold[100];
+	int lastSpace = 0;
+	int placehold = 0;
+	
+	userString[strlen(userString)-1] = ' ';
+	
+	for (int i = 0; i < strlen(userString); i++) {
+		if (userString[i] == ' ') {
+			for (int j = i-1; j >= lastSpace; j--) {
+				wordHold[placehold] = userString[j];
+				placehold++;
+			}
+			lastSpace = i+1;
+			placehold = lastSpace;
+			wordHold[i] = ' ';
+		}
+	}
+	for (int i = 0; i < strlen(userString); i++) {
+		userString[i] = wordHold[i];
 	}
 }
 
 int main() {
-	long longNum;
 	int num;
-	int loopHolder = 0;
+	char menuOpt;
+	FILE *f;
 	
-	while (loopHolder == 0) {
-		printf("\nInput a number smaller than 13: \n");
-		scanf(" %ld", &longNum);
-		if (longNum >= 13) {
-			printf("Inputted value is too large.\n");
-		}
-		else {
-			printf("The factorial of %ld is %ld.\n", longNum, factorial(longNum));
-		}
-		loopHolder = retest();
-	}
-	loopHolder = 0;
-	
-	while (loopHolder == 0) {
-		printf("\nInput a number with 9 or fewer digits: \n");
-		scanf(" %ld", &longNum);
-		if (isPalindrome(longNum) == 0) {
-			printf("\n%ld is not a palindrome.\n", longNum);
-		}
-		else {
-			printf("\n%ld is a palindrome.\n", longNum);
-		}
-		loopHolder = retest();
-	}
-	loopHolder = 0;
-	
-	while (loopHolder == 0) {
-		printf("\nInput a number smaller than 2048: \n");
-		scanf(" %d", &num);
-		if (num >= 2048) {
-			printf("Inputted value is too large.\n");
-		}
-		else {
-			highestBitSet(num);
-		}
-		loopHolder = retest();
-	}
-	loopHolder = 0;
-	
-	while (loopHolder == 0) {
-		reverseIt();
-		reverseItAgain();
-		loopHolder = retest();
-	}
-	loopHolder = 0;
-	
-	while (loopHolder == 0) {
-		printf("\nInput a number smaller than 101: \n");
-		scanf(" %d", &num);
-		pyramid(num);
-		loopHolder = retest();
-	}
-	loopHolder = 0;
-	
+	reverseArray();
 	printf("\n");
-	return 0;
+
+	printf("\nInput the number of students: \n");
+	scanf(" %d", &num);
+	student **studentArray = malloc(num * sizeof(student*));
+	for (int i = 0; i < num; i++) {
+		studentArray[i] = studentInfo();
+	}
+	gpaSorting(studentArray, num);
+	f = fopen("studentInfo.txt", "w+");
+	fprintf(f, "Number of Students: %d\n\n", num);
+	for (int i = 0; i < num; i++) {
+		fprintf(f, "\nStudent ID: %d\n", studentArray[i]->ID);
+		fprintf(f, "\nStudent Name: %s %s\n", studentArray[i]->firstName, studentArray[i]->lastName);
+		fprintf(f, "\nStudent GPA: %f\n\n", studentArray[i]->GPA);
+	}
+	free(studentArray);
+	fclose(f);
+	
+	student **studentArrayAgain = malloc(num * sizeof(student*));
+	studentRead(studentArrayAgain);
+	free(studentArrayAgain);
+	
+	fflush(stdin);
+	printf("Input a string: \n");
+	fgets(userString, 100, stdin);
+	printf("\n");
+	
+	printf("A) Count the number of vowels in the string\nB) Count the number of consonants in the string\nC) Convert the string to uppercase\nD) Convert the string to lowercase\nE) Display the current string\nF) Enter another string\nR) Reverse words in string\n\nM) Display this menu\nX) Exit the program\n\n");
+	
+	while ((menuOpt != 'x') && (menuOpt != 'X')) {
+		fflush(stdin);
+		menuOpt = getchar();
+		
+		if ((menuOpt == 'A') || (menuOpt == 'a')) {
+			printf("There are %d vowels in the string.\n\n", vowelCount(userString));
+		}
+		else if ((menuOpt == 'B') || (menuOpt == 'b')) {
+			printf("There are %d consonants in the string.\n\n", consCount(userString));
+		}
+		else if ((menuOpt == 'C') || (menuOpt == 'c')) {
+			uppering();
+		}
+		else if ((menuOpt == 'D') || (menuOpt == 'd')) {
+			lowering();
+		}
+		else if ((menuOpt == 'E') || (menuOpt == 'e')) {
+			printf("%s\n", userString);
+		}
+		else if ((menuOpt == 'F') || (menuOpt == 'f')) {
+			fflush(stdin);
+			printf("Input a string: \n");
+			fgets(userString, 100, stdin);
+			printf("\n");
+		}
+		else if ((menuOpt == 'R') || (menuOpt == 'r')) {
+			reversing();
+		}
+		else if ((menuOpt == 'M') || (menuOpt == 'm')) {
+			printf("A) Count the number of vowels in the string\nB) Count the number of consonants in the string\nC) Convert the string to uppercase\nD) Convert the string to lowercase\nE) Display the current string\nF) Enter another string\nR) Reverse words in string\n\nM) Display this menu\nX) Exit the program\n\n");
+		}
+	}
 }

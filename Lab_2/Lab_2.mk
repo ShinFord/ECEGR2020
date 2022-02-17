@@ -3,13 +3,13 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=Lab_1
+ProjectName            :=Lab_2
 ConfigurationName      :=Debug
 WorkspaceConfiguration := $(ConfigurationName)
 WorkspacePath          :=C:/Users/shinf/OneDrive/Documents/ECEGR2020
-ProjectPath            :=C:/Users/shinf/OneDrive/Documents/ECEGR2020/Lab_1
-IntermediateDirectory  :=../build-$(ConfigurationName)/Lab_1
-OutDir                 :=../build-$(ConfigurationName)/Lab_1
+ProjectPath            :=C:/Users/shinf/OneDrive/Documents/ECEGR2020/Lab_2
+IntermediateDirectory  :=../build-$(ConfigurationName)/Lab_2
+OutDir                 :=../build-$(ConfigurationName)/Lab_2
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
@@ -62,7 +62,7 @@ AS       := C:/Users/shinf/Tools/mingw64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=../build-$(ConfigurationName)/Lab_1/main.c$(ObjectSuffix) 
+Objects0=../build-$(ConfigurationName)/Lab_2/maine.c$(ObjectSuffix) 
 
 
 
@@ -74,18 +74,18 @@ Objects=$(Objects0)
 .PHONY: all clean PreBuild PrePreBuild PostBuild MakeIntermediateDirs
 all: MakeIntermediateDirs $(OutputFile)
 
-$(OutputFile): ../build-$(ConfigurationName)/Lab_1/.d $(Objects) 
-	@if not exist "..\build-$(ConfigurationName)\Lab_1" mkdir "..\build-$(ConfigurationName)\Lab_1"
+$(OutputFile): ../build-$(ConfigurationName)/Lab_2/.d $(Objects) 
+	@if not exist "..\build-$(ConfigurationName)\Lab_2" mkdir "..\build-$(ConfigurationName)\Lab_2"
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
 MakeIntermediateDirs:
-	@if not exist "..\build-$(ConfigurationName)\Lab_1" mkdir "..\build-$(ConfigurationName)\Lab_1"
+	@if not exist "..\build-$(ConfigurationName)\Lab_2" mkdir "..\build-$(ConfigurationName)\Lab_2"
 	@if not exist ""..\build-$(ConfigurationName)\bin"" mkdir ""..\build-$(ConfigurationName)\bin""
 
-../build-$(ConfigurationName)/Lab_1/.d:
-	@if not exist "..\build-$(ConfigurationName)\Lab_1" mkdir "..\build-$(ConfigurationName)\Lab_1"
+../build-$(ConfigurationName)/Lab_2/.d:
+	@if not exist "..\build-$(ConfigurationName)\Lab_2" mkdir "..\build-$(ConfigurationName)\Lab_2"
 
 PreBuild:
 
@@ -93,16 +93,16 @@ PreBuild:
 ##
 ## Objects
 ##
-../build-$(ConfigurationName)/Lab_1/main.c$(ObjectSuffix): main.c ../build-$(ConfigurationName)/Lab_1/main.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/shinf/OneDrive/Documents/ECEGR2020/Lab_1/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/Lab_1/main.c$(DependSuffix): main.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/Lab_1/main.c$(ObjectSuffix) -MF../build-$(ConfigurationName)/Lab_1/main.c$(DependSuffix) -MM main.c
+../build-$(ConfigurationName)/Lab_2/maine.c$(ObjectSuffix): maine.c ../build-$(ConfigurationName)/Lab_2/maine.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/shinf/OneDrive/Documents/ECEGR2020/Lab_2/maine.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/maine.c$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/Lab_2/maine.c$(DependSuffix): maine.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/Lab_2/maine.c$(ObjectSuffix) -MF../build-$(ConfigurationName)/Lab_2/maine.c$(DependSuffix) -MM maine.c
 
-../build-$(ConfigurationName)/Lab_1/main.c$(PreprocessSuffix): main.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/Lab_1/main.c$(PreprocessSuffix) main.c
+../build-$(ConfigurationName)/Lab_2/maine.c$(PreprocessSuffix): maine.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/Lab_2/maine.c$(PreprocessSuffix) maine.c
 
 
--include ../build-$(ConfigurationName)/Lab_1//*$(DependSuffix)
+-include ../build-$(ConfigurationName)/Lab_2//*$(DependSuffix)
 ##
 ## Clean
 ##

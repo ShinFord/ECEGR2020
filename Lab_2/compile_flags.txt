@@ -4,7 +4,7 @@
 -IC:\Users\shinf\Tools\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include
 -IC:\Users\shinf\Tools\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include-fixed
 -IC:\Users\shinf\Tools\mingw64\x86_64-w64-mingw32\include
--IC:\Users\shinf\OneDrive\Documents\ECEGR2020\Lab_3
+-IC:\Users\shinf\OneDrive\Documents\ECEGR2020\Lab_2
 -DNDEBUG
 -target
 x86_64-pc-windows-gnu
