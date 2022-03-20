@@ -93,7 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="queueArray.c" ExcludeProjConfig=""/>
+    <File Name="queueArray.c" ExcludeProjConfig="Debug;"/>
     <File Name="stackArray.c" ExcludeProjConfig="Debug;Release;"/>
     <File Name="studentInfo.txt" ExcludeProjConfig="Release;Debug;"/>
     <File Name="mainA.c" ExcludeProjConfig="Debug;Release;"/>
