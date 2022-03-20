@@ -93,7 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="../Lab_5/mainB.cpp" ExcludeProjConfig=""/>
-    <File Name="../Lab_5/mainA.cpp" ExcludeProjConfig="Release;"/>
+    <File Name="mainA.cpp"/>
+    <File Name="mainB.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
