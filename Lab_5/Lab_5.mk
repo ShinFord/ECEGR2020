@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Release
 ProjectName            :=Lab_5
-ConfigurationName      :=Debug
+ConfigurationName      :=Release
 WorkspaceConfiguration := $(ConfigurationName)
 WorkspacePath          :=C:/Users/shinf/OneDrive/Documents/ECEGR2020
 ProjectPath            :=C:/Users/shinf/OneDrive/Documents/ECEGR2020/Lab_5
@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=shinf
-Date                   :=19/03/2022
+Date                   :=20/03/2022
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/Users/shinf/Tools/mingw64/bin/g++.exe
 SharedObjectLinkerName :=C:/Users/shinf/Tools/mingw64/bin/g++.exe -shared -fPIC
@@ -29,7 +29,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 OutputFile             :=..\build-$(ConfigurationName)\bin\$(ProjectName)
-Preprocessors          :=
+Preprocessors          :=$(PreprocessorSwitch)NDEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := C:/Users/shinf/Tools/mingw64/bin/ar.exe rcu
 CXX      := C:/Users/shinf/Tools/mingw64/bin/g++.exe
 CC       := C:/Users/shinf/Tools/mingw64/bin/gcc.exe
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -O2 -Wall $(Preprocessors)
+CFLAGS   :=  -O2 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := C:/Users/shinf/Tools/mingw64/bin/as.exe
 
